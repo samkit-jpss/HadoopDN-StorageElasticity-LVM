@@ -6,7 +6,8 @@ print("""1.TO create a Physical Volume
          2.TO create a Volume Group 
          3.TO create a Logical Volume 
          4.To Extend the Storage Capacity of Data Node by 5GB 
-         5.EXIT
+         5.To Reduce the Storage Capacity by 5GB
+         6.EXIT
     """)
 while True:
     n=int(input("Select Option from 1-5 : "))
@@ -25,5 +26,8 @@ while True:
     elif n==4:
         os.system("lvextend --size +5G /dev/hadoopSto/hadoopLV")
         os.system("resize2fs /dev/hadoopSto/hadoopLV")
+    elif n==5:
+        os.system("lvreduce --size -5G /dev/hadoopSto/hadoopLV")
+        os.system("resize2fs /dev/hadoopSto/hadoopLV")         
     else:
         break
